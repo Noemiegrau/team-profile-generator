@@ -17,8 +17,8 @@ Project is created using:
 * JavaScript
 * Nodejs
 * Inquirerjs
-* TDD (jest tests)
 * OOP
+* TDD (jest tests)
 
 ## **_Usage_**
 
