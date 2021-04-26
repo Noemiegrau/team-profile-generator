@@ -88,7 +88,8 @@ questions() {
 
     // Pushes Manager data into teamArray
     .then( (templateData) => {
-        this.teamArray.push(new Manager(templateData.name, templateData.id, templateData.email, templateData.officeNumber));
+        const newManager = new Manager(templateData.name, templateData.id, templateData.email, templateData.officeNumber)
+        this.teamArray.push(newManager);
         // Sends user back to menu
         this.questions();
     });
@@ -150,7 +151,8 @@ questions() {
 
                 // Pushes Engineer data into teamArray
                 ]).then( templateData => {
-                    this.teamArray.push(new Engineer(templateData.name, templateData.id, templateData.email, templateData.github));
+                    const newEngineer = new Engineer(templateData.name, templateData.id, templateData.email, templateData.github);
+                    this.teamArray.push(newEngineer);
                     // Sends user back to menu
                     this.questions();
                 });
@@ -212,7 +214,8 @@ questions() {
 
             // Pushes Intern data into teamArray
             ]).then( templateData => {
-                this.teamArray.push(new Intern(templateData.name, templateData.id, templateData.email, templateData.school));
+                const newIntern = new Intern(templateData.name, templateData.id, templateData.email, templateData.school);
+                this.teamArray.push(newIntern);
                 // Sends user back to menu
                 this.questions();
             });
@@ -234,3 +237,5 @@ questions() {
 // Activates prompts in CLI
 const prompt = new Prompt();
 prompt.questions();
+
+module.exports = Prompt;

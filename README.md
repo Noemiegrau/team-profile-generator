@@ -22,11 +22,11 @@ Project is created using:
 
 ## **_Usage_**
 
--->
+
 
 Final app should look something like this:
 
--->
+![team-generator-screenshot](https://user-images.githubusercontent.com/78329298/116056411-9f880800-a632-11eb-9d18-343bd44ddea9.png)
 
 ## **_Installation_**
 Here are some guidelines for installing the project on your local machine in order to be able to try it: 
