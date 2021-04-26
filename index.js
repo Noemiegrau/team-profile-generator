@@ -219,7 +219,14 @@ questions() {
             });
 
         } else if (employeeType === 'I finished entering my team info') {
-            return writeFile(generatePage(this.getTeamArray()));
+            //function that writes the html file
+            // return writeFile(generatePage(this.getTeamArray()));
+            const pagehtml = generateHTML(this.getTeamArray());
+            fs.writeFile('./dist/index.html', pagehtml, err => {
+                if (err) throw new Error(err);
+
+                console.log('Page created! Check out index.html in the dist to see it!');
+            });
         }
     });
 
@@ -228,19 +235,3 @@ questions() {
 
 const prompt = new Prompt();
 prompt.questions();
-
-
-// var ifAddIntern = ["intern’s name", "ID", "email address", "school"];
-// // --> go back to menu 
-
-// var ifFinishTeam --> HTML Generated, console.log() where to find the generated html
-
-
-
-
-// var questionsSet1 = ["manager's name", "employee ID", "email address", "office number"]; 
-
-// var menu = ["add an engineer", "add an intern", "finish building my team"];
-
-// var ifAddEngineer = ["engineer’s name", "ID", "email address", "GitHub username"];
-// // --> go back to menu 
