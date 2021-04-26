@@ -6,6 +6,7 @@ const Manager = require('./lib/Manager');
 const Intern = require('./lib/Intern');
 const Engineer = require('./lib/Engineer');
 
+// Class containing all questions
 class Prompt{
     constructor() {
         this.teamArray = [];
@@ -18,14 +19,6 @@ class Prompt{
     getTeamArray() {
         return this.teamArray;
     }
-
-    // {
-    //     type: 'list',
-    //     name: 'employeeType',
-    //     message: "Which type of employee would you like to add to the team?",
-    //     choices: ['Engineer', 'Intern', 'I finished building my team']
-    // }
-
 
 // Questions
 questions() {
@@ -93,8 +86,10 @@ questions() {
     },
     ])
 
+    // Pushes Manager data into teamArray
     .then( (templateData) => {
         this.teamArray.push(new Manager(templateData.name, templateData.id, templateData.email, templateData.officeNumber));
+        // Sends user back to menu
         this.questions();
     });
 
@@ -153,8 +148,10 @@ questions() {
                     }  
                     }
 
+                // Pushes Engineer data into teamArray
                 ]).then( templateData => {
                     this.teamArray.push(new Engineer(templateData.name, templateData.id, templateData.email, templateData.github));
+                    // Sends user back to menu
                     this.questions();
                 });
 
@@ -213,19 +210,20 @@ questions() {
                 }  
                 }
 
+            // Pushes Intern data into teamArray
             ]).then( templateData => {
                 this.teamArray.push(new Intern(templateData.name, templateData.id, templateData.email, templateData.school));
+                // Sends user back to menu
                 this.questions();
             });
 
         } else if (employeeType === 'I finished entering my team info') {
-            //function that writes the html file
-            // return writeFile(generatePage(this.getTeamArray()));
+            //function that writes the html file in the dist folder
             const pagehtml = generateHTML(this.getTeamArray());
             fs.writeFile('./dist/index.html', pagehtml, err => {
                 if (err) throw new Error(err);
 
-                console.log('Page created! Check out index.html in the dist to see it!');
+                console.log('Page created! Check out index.html in the dist/ folder to see it!');
             });
         }
     });
@@ -233,5 +231,6 @@ questions() {
 }
 };
 
+// Activates prompts in CLI
 const prompt = new Prompt();
 prompt.questions();

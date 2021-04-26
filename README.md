@@ -33,13 +33,13 @@ Here are some guidelines for installing the project on your local machine in ord
 
 1. Since Node.js applications don't have a front end, clone or download the repository to your own local machine and run it from your command line.
 
-2. Change the working directory to ```cd Develop/```
+2. Then, make sure that your repo includes a package.json with the required dependencies. You can create one by running ```npm init``` in your command line.
 
-3. Then, make sure that your repo includes a package.json with the required dependencies. You can create one by running ```npm init``` in your command line.
+3. Make sure to download Inquirer.js by entering "npm install inquirer" in your terminal in the root directory of the project after downloading it onto your local machine. Learn more about this on [npm documentation.](https://www.npmjs.com/package/inquirer).
 
-4. Make sure to download Inquirer.js by entering "npm install inquirer" in your terminal in the root directory of the project after downloading it onto your local machine. Learn more about this on [npm documentation.](https://www.npmjs.com/package/inquirer).
+4. Run ```node index.js``` or ```node index``` in your terminal to launch the application, the first question will appear in your terminal. 
 
-5. Run ```node index.js``` in your terminal to launch the application, the first question will appear in your terminal. 
+5. To make sure the Jest tests work, run ```npm run test``` and inspect what the CLI returns.
 
 6. Enjoy and don't hesitate to contribute!
 
